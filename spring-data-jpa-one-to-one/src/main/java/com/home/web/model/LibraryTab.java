@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class LibraryTab {
 
     @Id
+    @GeneratedValue
     private int id;
 
     private  String bookName;
