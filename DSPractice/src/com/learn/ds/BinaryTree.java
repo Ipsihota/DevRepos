@@ -57,7 +57,3 @@ public class BinaryTree
                 + tree.getLeafCount());
     }
 }
-
-
-package com.learn.ds;public class BinaryTree {
-}
