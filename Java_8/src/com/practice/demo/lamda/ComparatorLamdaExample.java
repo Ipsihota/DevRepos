@@ -16,6 +16,6 @@ public class ComparatorLamdaExample {
 
         // Java8 using Lamda
         Comparator<Integer> integerComparator1 = (a,b)->a.compareTo(b);
-        System.out.println("Result Java8: "+ integerComparator1.compare(4, 3));
+        System.out.println("Result Java8: "+ integerComparator1.compare(2, 12));
     }
 }

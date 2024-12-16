@@ -11,7 +11,7 @@ public class RunnableLambdaExample {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                System.out.println("Inside Runnable 1");
+                System.out.println("Inside Runnable 1 : before java 8");
             }
         };
 
@@ -25,11 +25,11 @@ public class RunnableLambdaExample {
         Runnable runnableLambda = () -> {System.out.println("Inside Runnable 2");};
 
         Runnable runnableLambdaMultiStatements = () -> {
-                                        System.out.println("Inside Runnable 3");
-                                        System.out.println("Inside Runnable 3");
+                                        System.out.println("Inside Runnable 3.a");
+                                        System.out.println("Inside Runnable 3.b");
         };
 
-        Runnable runnableLambdaSimple = () -> System.out.println("Inside Runnable 3");
+        Runnable runnableLambdaSimple = () -> System.out.println("Inside Runnable 4");
 
 
         new Thread(runnableLambda).start();
@@ -39,12 +39,11 @@ public class RunnableLambdaExample {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println("Inside Runnable 3");
+                System.out.println("Inside Runnable 5");
             }
         }).start();
 
-        new Thread(() -> System.out.println("Inside Runnable 4")).start();
-
+        new Thread(() -> System.out.println("Inside Runnable 6")).start();
 
     }
 }
