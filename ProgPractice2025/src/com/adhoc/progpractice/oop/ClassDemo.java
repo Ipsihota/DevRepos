@@ -1,6 +1,6 @@
-package com.adhoc.progpractice;
+package com.adhoc.progpractice.oop;
 
-public class ClassDemo implements InterfaceA{
+public class ClassDemo implements InterfaceA {
     public static void main(String[] args) {
         ClassDemo classDemo = new ClassDemo();
         classDemo.show();

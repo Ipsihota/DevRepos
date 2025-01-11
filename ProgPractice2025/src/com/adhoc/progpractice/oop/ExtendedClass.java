@@ -1,4 +1,4 @@
-package com.adhoc.progpractice;
+package com.adhoc.progpractice.oop;
 
 public class ExtendedClass extends BaseClass {
     public void method() {

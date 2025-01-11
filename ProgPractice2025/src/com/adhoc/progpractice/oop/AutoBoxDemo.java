@@ -1,4 +1,4 @@
-package com.adhoc.progpractice;
+package com.adhoc.progpractice.oop;
 
 public class AutoBoxDemo {
     public static void main(String[] args) {

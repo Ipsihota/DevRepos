@@ -1,4 +1,4 @@
-package com.adhoc.progpractice;
+package com.adhoc.progpractice.oop;
 
 public interface InterfaceA {
 

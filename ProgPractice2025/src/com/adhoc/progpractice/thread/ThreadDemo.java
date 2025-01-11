@@ -1,4 +1,4 @@
-package com.adhoc.progpractice;
+package com.adhoc.progpractice.thread;
 
 public class ThreadDemo {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package com.adhoc.progpractice.exception;
 
-import com.adhoc.progpractice.Employee;
+import com.adhoc.progpractice.oop.Employee;
 
 public class ExceptionDemo {
     public static void main(String[] args) throws RuntimeException {

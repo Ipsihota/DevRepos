@@ -1,4 +1,4 @@
-package com.adhoc.progpractice;
+package com.adhoc.progpractice.thread;
 
 public class ThreadTestClass extends Thread{
 
