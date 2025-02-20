@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class BalancedParanthesis {
     public static void main(String[] args) {
-        String input = "{[]}([)]";
+        String input = "))(()) ";
         boolean isBalanced = getBalancedStructFlag(input);
         System.out.println("Result: " + isBalanced);
     }

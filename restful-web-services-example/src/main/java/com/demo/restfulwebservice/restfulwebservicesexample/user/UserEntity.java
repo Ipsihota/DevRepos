@@ -1,9 +1,14 @@
 package com.demo.restfulwebservice.restfulwebservicesexample.user;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
 import java.util.Date;
 
+@Entity
 public class UserEntity {
 
+    @Id
     private Integer id;
     private String name;
     private Date birthDate;

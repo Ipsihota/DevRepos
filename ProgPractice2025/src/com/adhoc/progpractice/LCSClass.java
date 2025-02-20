@@ -6,14 +6,14 @@ import java.util.Set;
 
 public class LCSClass {
     public static void main(String[] args) {
-        int a[] = {1, 52, 99, 12, 56, 2, 1, 3, 4,10,5};
+        int a[] = {1, 52, 99, 12, 56, 2, 1, 3, 4, 10, 5, 6};
         int x = a.length;
         int longest = findLCSLen1(a, x);
         System.out.println("Result- " + longest);
     }
 
     private static int findLCSLen1(int[] a, int x) {
-        Arrays.sort(a);
+        Arrays.sort(a); // [1, 1, 2, 3, 4, 5, 6, 10, 12, 52, 56, 99]
         int count = 0;
         int result = 0;
         int smallestNum = Integer.MIN_VALUE;

@@ -10,7 +10,7 @@ public class RunnableLamdaExample {
             }
         };
 
-        new Thread(runnable).start();
+//        new Thread(runnable).start();
 
         // Java 8 using Lamda
 
