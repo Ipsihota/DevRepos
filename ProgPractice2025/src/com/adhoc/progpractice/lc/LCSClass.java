@@ -1,4 +1,4 @@
-package com.adhoc.progpractice;
+package com.adhoc.progpractice.lc;
 
 import java.util.Arrays;
 import java.util.HashSet;

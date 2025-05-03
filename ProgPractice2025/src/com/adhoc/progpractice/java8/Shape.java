@@ -1,6 +1,7 @@
 package com.adhoc.progpractice.java8;
 
 @FunctionalInterface
-public interface Square extends Shape{
+public interface Shape {
     int calulateArea(int x);
+//    int m1();
 }
