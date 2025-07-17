@@ -1,63 +1,59 @@
 package com.adhoc.progpractice.ds.sort;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class MergeSortDemo {
+public class QuickSortDemo {
     public static void main(String[] args) {
-        int []arr = {4, 2, 1, 6, 7};
-        int n = 5;
-        // post merging
+        List<Integer> arr = new ArrayList<>();
+        arr = Arrays.asList(new Integer[] {4, 6, 2, 5, 7, 9, 1, 3});
 
-        mergeSort(arr, 0, n-1);
+        int n = arr.size();
+        // post sorting
 
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
+        quickSort(arr, 0, n-1);
+
+        for (int j : arr) {
+            System.out.print(j + " ");
         }
     }
 
-    protected static void mergeSort(int[] arr, int low, int high) {
-        if(low >= high) return;
+    protected static void quickSort(List<Integer> arr, int low, int high) {
 
-        int mid = (low + high)/2;
+        if(low < high) {
+            // get the index of pivot
+            int pIndex = partition(arr, low, high);
 
-        mergeSort(arr, low, mid);
-        mergeSort(arr, mid+1, high);
-        merge(arr, low, high, mid);
+            quickSort(arr, low, pIndex-1); // left sub array
+
+            quickSort(arr, pIndex +1, high); // right sub array
+        }
     }
 
-    protected static void merge(int[] arr, int low, int high, int mid) {
-        ArrayList<Integer> temp = new ArrayList<>(); // temporary array
-        int left = low;      // starting index of left half of arr
-        int right = mid + 1;   // starting index of right half of arr
+    protected static int partition(List<Integer> arr, int low, int high) {
 
-        //storing elements in the temporary array in a sorted manner//
+        int pivot = arr.get(low);
+        int i = low;
+        int j = high;
 
-        while (left <= mid && right <= high) {
-            if (arr[left] <= arr[right]) {
-                temp.add(arr[left]);
-                left++;
-            } else {
-                temp.add(arr[right]);
-                right++;
+        while (i < j) {
+            while (arr.get(i) <= pivot && i <= high - 1) {
+                i++;
+            }
+
+            while (arr.get(j) > pivot && j >= low + 1) {
+                j--;
+            }
+            if (i < j) {
+                int temp = arr.get(i);
+                arr.set(i, arr.get(j));
+                arr.set(j, temp);
             }
         }
-
-        // if elements on the left half are still left //
-
-        while (left <= mid) {
-            temp.add(arr[left]);
-            left++;
-        }
-
-        //  if elements on the right half are still left //
-        while (right <= high) {
-            temp.add(arr[right]);
-            right++;
-        }
-
-        // transfering all elements from temporary to arr //
-        for (int i = low; i <= high; i++) {
-            arr[i] = temp.get(i - low);
-        }
+        int temp = arr.get(low);
+        arr.set(low, arr.get(j));
+        arr.set(j, temp);
+        return j;
     }
 }

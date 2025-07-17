@@ -1,6 +1,6 @@
 package interview.test;
 
-public class BinarySearch {
+public class BinarySearchTree {
 
 
     public static void main(String[] args) {

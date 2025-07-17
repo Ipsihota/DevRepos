@@ -1,32 +1,30 @@
 package com.adhoc.progpractice;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ArrayDemo1 {
-    public static void main(String[] args) {
-       /* Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of an array : " );
-        int size = sc.nextInt();
-
-        int []arr = new int[size];
-
-        System.out.println("Enter array element of size : " + size);
-        for (int i = 0; i < size; i++) {
-            arr[i] = sc.nextInt();
-        } */
-
-        // to find the count, which sum is multiple to the given number.
-        int arr[] = {5, 10, 9, 30, 1};  int target = 10;
-        Map<Integer, Integer> reminderMap = new HashMap<>();
+public class CountPairs {
+    public static int countPairs(int[] arr, int k) {
+        int n = arr.length;
         int count = 0;
-        reminderMap.put(0, 1);
+        Map<Integer, Integer> remainders = new HashMap<>();
 
-        for (int num : arr){
-            int rem = num
+        for (int i = 0; i < n; i++) {
+            int remainder = arr[i] % k;
+            int complement = (k - remainder) % k; // Important: Handles remainder 0 correctly
+
+            if (remainders.containsKey(complement)) {
+                count += remainders.get(complement);
+            }
+            remainders.put(remainder, remainders.getOrDefault(remainder, 0) + 1);
         }
+        return count;
+    }
 
-        System.out.println("Count: " + count);
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        int k = 3;
+        int result = countPairs(arr, k);
+        System.out.println("Number of pairs whose sum is a multiple of " + k + ": " + result);
     }
 }
