@@ -76,10 +76,10 @@ public class StreamDemo {
         Stream.generate(random::nextInt).limit(10).forEach(System.out::println);
 
         System.out.println("16. Sum of salary of employee");
-        Employee emp1 = new Employee("Name1", 10000);
-        Employee emp2 = new Employee("Name2", 20000);
-        Employee emp3 = new Employee("Name3", 30000);
-        Employee emp4 = new Employee("Name1", 10000);
+        Employee emp1 = new Employee("Name1", 10000.0);
+        Employee emp2 = new Employee("Name2", 20000.0);
+        Employee emp3 = new Employee("Name3", 30000.0);
+        Employee emp4 = new Employee("Name1", 10000.0);
         List<Employee> employees = new ArrayList<>();
         employees.add(emp1);
         employees.add(emp2);
@@ -107,13 +107,13 @@ public class StreamDemo {
 
         firstRepetitive.ifPresentOrElse(System.out::println, ()-> System.out.println("No repetitive char found"));
        // Average salary of male and female.
-        Employee emp11 = new Employee("e1", 1000, "male");
-        Employee emp12 = new Employee("e2", 10200, "female");
-        Employee emp13 = new Employee("e3", 10000, "male");
-        Employee emp14 = new Employee("e4", 100000, "female");
-        Employee emp15 = new Employee("e5", 100000, "female");
-        Employee emp16 = new Employee("e6", 80000, "male");
-        Employee emp17 = new Employee("e7", 100000, "female");
+        Employee emp11 = new Employee("e1", 1000.0, "male");
+        Employee emp12 = new Employee("e2", 10200.0, "female");
+        Employee emp13 = new Employee("e3", 10000.0, "male");
+        Employee emp14 = new Employee("e4", 100000.0, "female");
+        Employee emp15 = new Employee("e5", 100000.0, "female");
+        Employee emp16 = new Employee("e6", 80000.0, "male");
+        Employee emp17 = new Employee("e7", 100000.0, "female");
 
         List<Employee> employeeList = new ArrayList<>();
         employeeList.add(emp11);
@@ -126,10 +126,24 @@ public class StreamDemo {
 
         System.out.println("18.Average salary of male and female***********");
 
-        Map<String, Double> avgSalaryByGender = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingInt(Employee::getSal)));
+        Map<String, Double> avgSalaryByGender = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSal)));
         System.out.println(avgSalaryByGender);
 
-//        Map<String, Double> maxSalaryByGender = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.maxBy(Comparator.comparingDouble(Employee::getSal))));
+        System.out.println("18.Max salary of male and female***********");
+
+        Map<String, Double> maxSalaryByGender = employeeList.stream()
+                .collect(Collectors.groupingBy(
+                        Employee::getGender,
+                        Collectors.collectingAndThen(
+                                Collectors.maxBy(Comparator.comparingDouble(Employee::getSal)),
+                                employeeOptional -> employeeOptional.map(Employee::getSal).orElse(0.0)
+                        )
+                ));
+        System.out.println(maxSalaryByGender);
+
+        System.out.println("18.Count of male and female gender wise***********");
+        Map<String, Long> countByGender = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+        System.out.println(countByGender);
 
     }
 }

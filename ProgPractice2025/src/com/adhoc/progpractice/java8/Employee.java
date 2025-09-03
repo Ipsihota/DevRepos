@@ -2,17 +2,17 @@ package com.adhoc.progpractice.java8;
 
 public class Employee {
     String name;
-    Integer sal;
+    Double sal;
     Integer id;
     String dept;
     String gender;
 
-    public Employee(String name, Integer sal) {
+    public Employee(String name, Double sal) {
         this.name = name;
         this.sal = sal;
     }
 
-    public Employee(String name, Integer sal, String gender) {
+    public Employee(String name, Double sal, String gender) {
         this.name = name;
         this.sal = sal;
         this.gender = gender;
@@ -28,7 +28,7 @@ public class Employee {
         return name;
     }
 
-    public Integer getSal() {
+    public Double getSal() {
         return sal;
     }
 
