@@ -1,0 +1,3 @@
+[submodule "java-interview-setup"]
+	path = java-interview-setup
+	url = https://github.com/Ipsihota/DevRepos.git
