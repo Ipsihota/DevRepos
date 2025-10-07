@@ -1,6 +1,6 @@
 package com.home.web.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 public class LibraryTab {
@@ -11,8 +11,8 @@ public class LibraryTab {
 
     private  String bookName;
 
-    @OneToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="address_ref_no" ,unique = true)
+    // parent side
+    @OneToOne(mappedBy = "libraryTab", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private AddressTab addressTab;
 
     public int getId() {

@@ -1,8 +1,6 @@
 package com.home.web.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class AddressTab {
@@ -13,7 +11,9 @@ public class AddressTab {
     private String country;
     private String zip;
 
-    @OneToOne(mappedBy = "addressTab")
+    // child side
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "lib_ref_no", unique = true, nullable = true)
     private LibraryTab libraryTab;
 
     public int getId() {
